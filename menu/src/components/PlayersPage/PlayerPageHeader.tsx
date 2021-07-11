@@ -8,16 +8,11 @@ import {
   Typography,
 } from "@material-ui/core";
 import { Search, SortByAlpha } from "@material-ui/icons";
-import {
-  PlayerDataSort,
-  usePlayersSortBy,
-  usePlayersState,
-  useSetPlayerFilter,
-} from "../../state/players.state";
 import { useDebounce } from "../../hooks/useDebouce";
 import { useServerCtxValue } from "../../state/server.state";
 import { useTranslate } from "react-polyglot";
 import { TextField } from "../misc/TextField";
+import {PlayerDataSort, usePlayerDataContext} from "../../provider/PlayerDataProvider";
 
 const useStyles = makeStyles((theme: Theme) => ({
   title: {
@@ -37,9 +32,12 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 export const PlayerPageHeader: React.FC = () => {
   const classes = useStyles();
-  const [sortType, setSortType] = usePlayersSortBy();
-  const setPlayerFilter = useSetPlayerFilter();
-  const allPlayers = usePlayersState();
+  const {
+    playerSortType: sortType,
+    setPlayerSortType: setSortType,
+    setPlayerFilterInput: setPlayerFilter,
+    playerData: allPlayers,
+  } = usePlayerDataContext()
   const [searchVal, setSearchVal] = useState("");
   const serverCtx = useServerCtxValue();
   const t = useTranslate();

@@ -18,10 +18,10 @@ import {
   Flight
 } from "@material-ui/icons";
 import { usePlayerModalContext } from "../../provider/PlayerModalProvider";
-import { PlayerData, VehicleStatus } from "../../state/players.state";
 import { useSetAssociatedPlayer } from "../../state/playerDetails.state";
 import { formatDistance } from "../../utils/miscUtils";
 import { useTranslate } from 'react-polyglot';
+import {PlayerData, VehicleStatus} from "../../provider/PlayerDataProvider";
 
 const useStyles = makeStyles((theme: Theme) => ({
   paper: {

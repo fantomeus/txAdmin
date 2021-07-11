@@ -110,6 +110,18 @@ CreateThread(function()
 end)
 
 CreateThread(function()
+  while true do
+    -- update local coords state
+    local coords = GetEntityCoords(PlayerPedId())
+    SendNUIMessage({
+      action = 'setPlayerCoords',
+      data = { coords[1], coords[2], coords[3] }
+    })
+    Wait(2500)
+  end
+end)
+
+CreateThread(function()
   TriggerEvent('chat:removeSuggestion', '/txadmin')
   TriggerEvent('chat:removeSuggestion', '/tx')
 end)

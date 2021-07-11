@@ -5,10 +5,10 @@ import {
   useRecoilValue,
   useSetRecoilState,
 } from "recoil";
-import { PlayerData } from "./players.state";
 import { fetchWebPipe } from "../utils/fetchWebPipe";
 import { debugLog } from "../utils/debugLog";
 import { MockedPlayerDetails } from "../utils/constants";
+import {PlayerData} from "../provider/PlayerDataProvider";
 
 interface PlayerHistoryItem {
   id: string;
